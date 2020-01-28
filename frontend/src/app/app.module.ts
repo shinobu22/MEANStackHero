@@ -10,7 +10,6 @@ import { RegisterComponent } from './components/member/register/register.compone
 import { HeaderComponent } from './components/shared/header/header.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
-import { StockComponent } from './components/stock/stock.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { StockComponent } from './components/stock/stock.component';
     RegisterComponent,
     HeaderComponent,
     MenuComponent,
-    FooterComponent,
-    StockComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
