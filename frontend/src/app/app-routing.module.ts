@@ -10,9 +10,14 @@ import { StockEditComponent } from './components/stock/stock-edit/stock-edit.com
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'stock', component: StockHomeComponent },
-  { path: 'stock/create', component: StockCreateComponent },
-  { path: 'stock/edit', component: StockEditComponent },
+  {
+    path: 'stock',
+    children: [
+      { path: '', component: StockHomeComponent },
+      { path: 'create', component: StockCreateComponent },
+      { path: 'edit/:id', component: StockEditComponent },
+    ]
+  },
   { path: '**', redirectTo: 'login' }
 ];
 
