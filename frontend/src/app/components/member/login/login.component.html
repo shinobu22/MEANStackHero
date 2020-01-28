@@ -1,13 +1,14 @@
 <div class="hold-transition login-page">
     <div class="login-box">
-        <div class="login-logo">
-            {{ myApp }}
+        <div class="login-logo d-flex flex-column justify-content-center align-items-center">
+            <div style=" width: 90px; height: 50px; background-color: aqua;">BOX A</div>
+            <div class="order-2" style=" width: 90px; height: 50px; background-color: red;">BOX B</div>
+            <div class="order-1 align-self-start" style=" width: 90px; height: 50px; background-color: royalblue;">BOX C</div>
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
-
                 <form #loginFrom="ngForm" (submit)="login(loginFrom)">
                     <div class="input-group mb-3">
                         <input ngModel name="username" type="email" class="form-control" placeholder="Email">
