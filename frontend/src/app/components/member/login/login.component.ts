@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +12,12 @@ export class LoginComponent implements OnInit {
 
   myApp: string = "Workshop POS";
 
-  constructor() { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+    if(this.authService.isLogin()) {
+      this.router.navigate(["/stock"]);
+    }
   }
 
   onSayHi() {
@@ -24,9 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(loginForm: NgForm) {
-    console.log(loginForm.value);
-    console.log(loginForm.value.username);
-    alert(JSON.stringify(loginForm.value));
+    this.authService.login("adsafkljkldsagu9uioqerj3489310134klasdf");
   }
 
 }

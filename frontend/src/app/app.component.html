@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+<ng-container *ngIf="authService.isLogin(); then homeTemplate; else authenTemplate"></ng-container>
+<ng-template #authenTemplate>
+    <router-outlet></router-outlet>
+</ng-template>
+<ng-template #homeTemplate>
+    <app-header></app-header>
+    <app-menu></app-menu>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+</ng-template>
