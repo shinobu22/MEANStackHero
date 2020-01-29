@@ -7,7 +7,6 @@ Github (Teacher)
 Chrome Extension
 - Octotree : https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=th
 
-
 VS Code Extension
 - Angular Snippets (Version 8)
 - Angular 8 Snippets - TypeScript, Html, Angular Material, ngRx, RxJS & Flex Layout
@@ -27,3 +26,12 @@ Express & Node.js
 - npm init -y
 - npm i express
 - npm i -g nodemon (install nodemon package global)
+
+MongoDB
+- npm i mongoose
+- npm i mongoose-sequence
+- npm i bcryptjs 
+- npm i cors 
+- npm i formidable
+- npm i jsonwebtoken
+- npm i uuid
