@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stock-create',
@@ -12,7 +13,7 @@ export class StockCreateComponent implements OnInit {
   mProduct = new Product();
   imageSrc: string | ArrayBuffer;
 
-  constructor(private location: Location) { 
+  constructor(private location: Location, private router: Router) { 
     this.mProduct.name = "";
     this.mProduct.price = 0;
     this.mProduct.stock = 0;
@@ -35,7 +36,8 @@ export class StockCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    alert(this.mProduct.name);
+    console.log(this.mProduct);
+    this.router.navigate([`/stock/edit/1150`]);
   }
 
   onCancel() {
