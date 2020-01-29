@@ -6,6 +6,7 @@ Github (Teacher)
 
 Chrome Extension
 - Octotree : https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=th
+- JSON Viewer : https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh
 
 VS Code Extension
 - Angular Snippets (Version 8)
@@ -18,9 +19,9 @@ VS Code Extension
 - JavaScript (ES6) Code Snippets
 
 Angular Cli
-- ng n <project>
-- ng g c <path> #components
-- ng g s <path> #service
+- ng n <project> (new project)
+- ng g c <path> (components)
+- ng g s <path> (service)
 
 Express & Node.js
 - npm init -y
@@ -35,3 +36,4 @@ MongoDB
 - npm i formidable
 - npm i jsonwebtoken
 - npm i uuid
+- npm i fs-extra
