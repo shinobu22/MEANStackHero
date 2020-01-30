@@ -22,6 +22,7 @@ Angular Cli
 - ng n <project> (new project)
 - ng g c <path> (components)
 - ng g s <path> (service)
+- ng g g <path> (guard)
 
 Express & Node.js
 - npm init -y
