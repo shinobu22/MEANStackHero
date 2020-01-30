@@ -26,7 +26,6 @@ export class StockEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.mProduct);
     this.networkService.editProduct(this.mProduct.product_id.toString(), this.mProduct).subscribe(
       result => {
         this.router.navigate(['/stock']);

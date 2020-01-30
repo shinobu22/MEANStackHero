@@ -16,6 +16,8 @@ import { StockCreateComponent } from './components/stock/stock-create/stock-crea
 import { StockEditComponent } from './components/stock/stock-edit/stock-edit.component';
 import { StockHomeComponent } from './components/stock/stock-home/stock-home.component';
 import { JWTInterceptor } from './services/jwt.interceptor';
+import { ShopHomeComponent } from './components/shop/shop-home/shop-home.component';
+import { ShopPaymentComponent } from './components/shop/shop-payment/shop-payment.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { JWTInterceptor } from './services/jwt.interceptor';
     FooterComponent,
     StockCreateComponent,
     StockEditComponent,
-    StockHomeComponent
+    StockHomeComponent,
+    ShopHomeComponent,
+    ShopPaymentComponent
   ],
   imports: [
     BrowserModule,
