@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { NetworkService } from 'src/app/services/network.service';
 
 @Component({
   selector: 'app-stock-create',
@@ -13,7 +14,7 @@ export class StockCreateComponent implements OnInit {
   mProduct = new Product();
   imageSrc: string | ArrayBuffer;
 
-  constructor(private location: Location, private router: Router) { 
+  constructor(private location: Location, private router: Router, private networkService: NetworkService) { 
     this.mProduct.name = "";
     this.mProduct.price = 0;
     this.mProduct.stock = 0;
@@ -36,8 +37,14 @@ export class StockCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.mProduct);
-    this.router.navigate([`/stock/edit/1150`]);
+    this.networkService.addProduct(this.mProduct).subscribe(
+      result => {
+        this.location.back();
+      },
+      error => {
+        alert(error.error.message);
+      }
+    )
   }
 
   onCancel() {

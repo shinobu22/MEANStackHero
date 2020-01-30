@@ -41,8 +41,9 @@
                         </div>
                         <div class="card-footer">
                             <button (click)="onSubmit()" type="submit"
-                                class="btn btn-primary float-right">Submit</button>
-                            <button (click)="onCancel()" class="btn btn-default">Cancel</button>
+                                class="btn btn-primary float-right"><i class="fa fa-save"></i> Save</button>
+                            <button (click)="onCancel()" class="btn btn-default"><i class="fa fa-undo"></i> Back</button>
+                            <button (click)="onDelete()" class="btn ml-1 btn-danger"><i class="fa fa-trash-alt"></i> Delete</button>
                         </div>
                     </form>
                 </div>
@@ -50,7 +51,14 @@
             <div class="col-md-6">
                 <div class="card card-primary">
                     <div class="card-body">
-                        <img *ngIf="mProduct.image" [src]="mProduct.image" class="img-preview border" alt="Photo">
+                        <div class="form-group">
+                            <input (change)="onUpload($event)" id="upload" class="pic-upload" accept="image/*" type="file">
+                            <a class="btn btn-app btn-block"
+                                onclick="document.getElementById('upload').click(); return false">
+                                <i class="far fa-image"></i>Upload image
+                            </a>
+                        </div>
+                        <img *ngIf="imageSrc" [src]="imageSrc" class="img-preview border" alt="Photo">
                     </div>
                 </div>
             </div>

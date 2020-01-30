@@ -7,9 +7,13 @@ const formidable = require('formidable')
 const fs = require('fs-extra')
 const path = require('path')
 
+router.get('/product/images/:name', (req, res) => {
+    res.sendFile(path.join(__dirname, `/../uploads/images/${req.params.name}`))
+})
+
 router.get('/product', jwt.verify, async (req, res) => {
     try {
-        let result = await Product.find({}).sort({product_id: 1})
+        let result = await Product.find({}).sort({created: -1})
         if(!result) {
             return res.status(404).json({result: result, message: 'Failure'})
         }
@@ -38,13 +42,18 @@ router.post('/product', jwt.verify, (req, res) => {
         res.json({ result: result, message: 'Insert Successfully' })
     })
 })
-router.put('/product/:id', jwt.verify, (req, res) => {
-    let form = new formidable.IncomingForm()
-    form.parse(req, async (err, fields, files) => {
-        fields.image = await uploadImage(files) || ''
-        let result = await Product.findOneAndUpdate(fields)
-        res.json({ result: result, message: 'Update Successfully' })
-    })
+router.put('/product/:id', jwt.verify, async (req, res) => {
+    let result = await Product.findOne({product_id: req.params.id})
+    if(result) {
+        let form = new formidable.IncomingForm()
+        form.parse(req, async (err, fields, files) => {
+            fields.image = await uploadImage(files) || result.image
+            let doc = await Product.findOneAndUpdate({product_id: result.product_id}, fields)
+            res.json({ result: doc, message: 'Update Successfully' })
+        })
+    } else {
+        res.status(404).json({result: result, message: ''})
+    }
 })
 router.delete('/product/:id', jwt.verify, async (req, res) => {
     try {

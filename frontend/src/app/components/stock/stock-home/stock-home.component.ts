@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { debounceTime } from "rxjs/operators";
+import { NetworkService } from 'src/app/services/network.service';
+import { ProductResult } from 'src/app/models/product.model';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-stock-home',
@@ -10,26 +13,69 @@ import { debounceTime } from "rxjs/operators";
 })
 export class StockHomeComponent implements OnInit {
 
-  mDataArray = [11, 22, 33, 44, 55];
+  mDataArray: ProductResult[] = [];
+  mSearchArray: ProductResult[] = [];
   mTextSearch = new Subject<string>();
+  imageSrc: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private networkService: NetworkService) { }
 
   ngOnInit() {
     this.mTextSearch.pipe(
       debounceTime(2000)
     ).subscribe(keyword => this.search(keyword));
+
+    this.feedData();
+  }
+  feedData() {
+    this.networkService.getProduct().subscribe(
+      result => {
+        var items = result.result as ProductResult[];
+        this.mDataArray = items;
+        this.mSearchArray = this.mDataArray;
+      },
+      error => {
+        alert(error.error.message);
+      }
+    )
   }
   search(keyword: string): void {
-    console.log(keyword);
+    if (!keyword) {
+      return this.feedData();
+    }
+    this.mDataArray = this.mSearchArray.filter(item => {
+      return item.name.toLowerCase().includes(keyword.toLowerCase());
+    })
   }
 
-  outofStock() {
-    return 1150;
+  outofStock(): number {
+    return this.mDataArray.filter(item => {
+      return item.stock <= 0
+    }).length;
   }
 
   onClickDelete(id: string) {
-
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        this.networkService.deleteProductById(id).subscribe(
+          result => {
+            Swal.fire( 'Deleted!', 'Your Product has been deleted.', 'success');
+            this.feedData();
+          },
+          error => {
+            alert(error.error.message);
+          }
+        )
+      }
+    })
   }
 
   onClickEdit(id: string) {

@@ -50,25 +50,26 @@
                         <table class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th class="text-center">ID</th>
+                                    <th class="text-center">#</th>
                                     <th>NAME</th>
-                                    <th>PRICE</th>
-                                    <th>STOCK</th>
+                                    <th class="text-center">PRICE</th>
+                                    <th class="text-center">STOCK</th>
+                                    <th style="width: 150px !important;" class="text-center"><i class="fa fa-calendar"></i></th>
                                     <th class="text-center">ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of mDataArray">
-                                    <td class="text-center">XXX</td>
+                                    <td><img *ngIf="imageSrc" [src]="imageSrc" class="img-preview border" alt="Photo"></td>
                                     <td>
-                                        <img class="product_image border" />
-                                        <strong class="product_name">XXXX</strong>
+                                        <strong class="product_name">{{ item.name }}</strong>
                                     </td>
-                                    <td>฿ {{ 150000 | number: '1.0-2' }}</td>
-                                    <td>XXX PCS.</td>
+                                    <td class="text-center">฿ {{ item.price | number: '1.0-2' }}</td>
+                                    <td class="text-center">{{ item.stock }}</td>
+                                    <td class="text-center">{{ item.created }}</td>
                                     <td class="text-center">
-                                        <img (click)="onClickEdit(1150)" src="assets/images/ic_edit.png" class="edit_product">
-                                        <img (click)="onClickDelete(1150)" src="assets/images/ic_delete.png" class="delete_product">
+                                        <img (click)="onClickEdit(item.product_id)" src="assets/images/ic_edit.png" class="edit_product">
+                                        <img (click)="onClickDelete(item.product_id)" src="assets/images/ic_delete.png" class="delete_product">
                                     </td>
                                 </tr>
                             </tbody>

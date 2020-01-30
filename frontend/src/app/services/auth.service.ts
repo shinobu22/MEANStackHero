@@ -22,4 +22,5 @@ export class AuthService {
     localStorage.removeItem(environment.keyLocalAuthenInfo);
     this.router.navigate(["/login"]);
   }
+  
 }
