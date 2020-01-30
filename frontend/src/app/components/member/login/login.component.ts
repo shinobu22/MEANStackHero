@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { NetworkService } from 'src/app/services/network.service';
 
 @Component({
   selector: 'app-login',
@@ -12,24 +13,31 @@ export class LoginComponent implements OnInit {
 
   myApp: string = "Workshop POS";
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private networkService: NetworkService) {
+  }
 
   ngOnInit() {
-    if(this.authService.isLogin()) {
+    if (this.authService.isLogin()) {
       this.router.navigate(["/stock"]);
     }
   }
 
-  onSayHi() {
-    // alert(this.myApp + this.onGetName());
-  }
-
-  onGetName(): string {
-    return "Pom";
-  }
-
   login(loginForm: NgForm) {
-    this.authService.login("adsafkljkldsagu9uioqerj3489310134klasdf");
+    this.networkService.login(loginForm.value).subscribe(
+      result => {
+        if (result.token) {
+          this.authService.login(result.token);
+        } else {
+          alert(result.message);
+        }
+      },
+      error => {
+        alert(error.error.message);
+      }
+    )
   }
 
 }

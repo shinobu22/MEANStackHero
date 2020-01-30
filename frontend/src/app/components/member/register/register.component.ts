@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NetworkService } from 'src/app/services/network.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,19 +11,20 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-
-
-  constructor(private router: Router) {
-
-  }
+  constructor(private router: Router, private networkService: NetworkService, private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   register(registerForm: NgForm) {
-    alert(JSON.stringify(registerForm.value));
-    alert("Register Complete!");
-    this.router.navigate(["/login"]);
+    this.networkService.register(registerForm.value).subscribe(
+      result => {
+        this.router.navigate(['/login']);
+      },
+      error => {
+        alert(error.error.message);
+      }
+    )
   }
 
 }

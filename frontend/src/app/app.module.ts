@@ -4,7 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { FormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 import { LoginComponent } from './components/member/login/login.component';
 import { RegisterComponent } from './components/member/register/register.component';
 import { HeaderComponent } from './components/shared/header/header.component';
@@ -29,7 +31,8 @@ import { StockHomeComponent } from './components/stock/stock-home/stock-home.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
