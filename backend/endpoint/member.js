@@ -14,6 +14,7 @@ router.post('/auth/register', async (req, res) => {
     res.status(500).json({ result: error, message: 'Failure' })
   }
 })
+
 router.post('/auth/login', async (req, res) => {
   try {
     let { username, password } = req.body

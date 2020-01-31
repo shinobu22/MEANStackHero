@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ResponseLogin, ResponseRegister } from '../models/user.model';
 import { ProductResponse, Product } from '../models/product.model';
 import { environment } from 'src/environments/environment';
+import { TransactionResponse, TransactionResult} from '../models/transaction.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,14 @@ export class NetworkService {
   editProduct(id: string, data: Product): Observable<ProductResponse> {
     let result = this.httpClient.put<ProductResponse>(`product/${id}`, this.makeFormData(data))
     return result
+  }
+
+  getTransaction(): Observable<TransactionResponse> {
+    return this.httpClient.get<TransactionResponse>('transaction')
+  }
+
+  getTransactionById(id: string): Observable<TransactionResult> {
+    return this.httpClient.get<TransactionResult>(`transaction/${id}`)
   }
 
   getImage(name: string): string {

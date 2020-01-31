@@ -11,6 +11,7 @@ import { ReportHomeComponent } from './components/report/report-home/report-home
 import { UserHomeComponent } from './components/user/user-home/user-home.component';
 import { GraphHomeComponent } from './components/graph/graph-home/graph-home.component';
 import { TransactionHomeComponent } from './components/transaction/transaction-home/transaction-home.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -24,7 +25,7 @@ const routes: Routes = [
     ], canActivate: [AuthGuard]
   },
   { path: 'orders', component: TransactionHomeComponent, canActivate: [AuthGuard]},
-  { path: 'chart', component: TransactionHomeComponent, canActivate: [AuthGuard]},
+  { path: 'chart', component: ChartComponent, canActivate: [AuthGuard]},
   { path: 'report', component: ReportHomeComponent, canActivate: [AuthGuard]},
   { path: 'user', component: UserHomeComponent, canActivate: [AuthGuard]},
   { path: 'graph', component: GraphHomeComponent, canActivate: [AuthGuard]},

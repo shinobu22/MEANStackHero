@@ -4,5 +4,6 @@ require('./config/db')
 
 router.use(require('./endpoint/member'))
 router.use(require('./endpoint/product'))
+router.use(require('./endpoint/transaction'))
 
 module.exports = router

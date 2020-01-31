@@ -1,1 +1,72 @@
-<p>transaction-home works!</p>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info"><i class="fas fa-shopping-cart"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Orders</span>
+                        <span class="info-box-number">{{ mDataArray.length }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-warning"><i class="fas fa-exclamation-triangle"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Defect</span>
+                        <span class="info-box-number">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-maroon"><i class="fas fa-minus-circle"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Sold out</span>
+                        <span class="info-box-number">xxx</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+      <div class="card card-primary">
+        <div class="card-body">
+          <table class="table table-bordered table-striped table-hover table-transactions">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>DATE</th>
+                <th>TIME</th>
+                <th>STAFF</th>
+                <th>CUSTOMER</th>
+                <th>TOTAL</th>
+                <th>PAID</th>
+                <th>#SKU</th>
+                <th>DISCOUNT</th>
+                <th>WAY</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let item of mDataArray">
+              <td class="transaction-id"><a>TRX: {{ item.transaction_id }}</a></td>
+              <td>{{ item.timestamp }}</td>
+                <td>{{ item.timestamp }}</td>
+                <td>{{ item.staff_id }}</td>
+              <td>{{ item.buyer_id }}</td>
+                <td>{{ item.total | number: '1.2-2'}}</td>
+                <td>{{ item.paid | number: '1.2-2'}}</td>
+                <td>{{ item.order_list.length }} SKU</td>
+                <td>{{ item.discount }}</td>
+                <td>{{ item.payment_type }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
