@@ -68,8 +68,8 @@
                                     <td class="text-center">{{ item.stock }}</td>
                                     <td class="text-center">{{ item.created }}</td>
                                     <td class="text-center">
-                                        <img (click)="onClickEdit(item.product_id)" src="assets/images/ic_edit.png" class="edit_product">
-                                        <img (click)="onClickDelete(item.product_id)" src="assets/images/ic_delete.png" class="delete_product">
+                                        <img (click)="onClickEdit(item.product_id)" src="{{ 'assets/images/ic_edit.png' | imageAsset }}" class="edit_product">
+                                        <img (click)="onClickDelete(item.product_id)" src="{{ 'assets/images/ic_delete.png' | imageAsset }}" class="delete_product">
                                     </td>
                                 </tr>
                             </tbody>

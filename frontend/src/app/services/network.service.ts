@@ -52,7 +52,7 @@ export class NetworkService {
 
   getImage(name: string): string {
     if(!name) {
-      return 'frontend/src/assets/images/no_photo.jpg';
+      return `${environment.baseUrl}/assets/images/no_photo.jpg`;
     }
     return `${environment.baseAPIURL}v1/product/images/${name}`;
   }

@@ -24,6 +24,7 @@ import { ReportHomeComponent } from './components/report/report-home/report-home
 import { CustomPipe } from './pipes/custom.pipe';
 import { TransactionHomeComponent } from './components/transaction/transaction-home/transaction-home.component';
 import { ChartComponent } from './components/chart/chart.component';
+import { ImageAssetPipe } from './pipes/image-asset.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ChartComponent } from './components/chart/chart.component';
     ReportHomeComponent,
     CustomPipe,
     TransactionHomeComponent,
-    ChartComponent
+    ChartComponent,
+    ImageAssetPipe
   ],
   imports: [
     BrowserModule,
