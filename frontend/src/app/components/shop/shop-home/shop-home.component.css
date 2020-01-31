@@ -21,11 +21,14 @@
 }
 
 .thumbnail img.portrait {
+  height: 100%;
   width: 100%;
+  object-fit: cover;
+  /* width: 100%;
   height: auto;
   margin-top: 15px;
   width: 100%;
-  opacity: 0.85;
+  opacity: 0.85; */
 }
 
 .payment_btn {
@@ -105,6 +108,7 @@ li.selected_row {
   border: 1px solid rgb(194, 194, 194);
   height: 100px;
   width: 100px;
+  object-fit: cover;
 }
 
 .card_no_order {

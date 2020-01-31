@@ -18,6 +18,10 @@ import { StockHomeComponent } from './components/stock/stock-home/stock-home.com
 import { JWTInterceptor } from './services/jwt.interceptor';
 import { ShopHomeComponent } from './components/shop/shop-home/shop-home.component';
 import { ShopPaymentComponent } from './components/shop/shop-payment/shop-payment.component';
+import { GraphHomeComponent } from './components/graph/graph-home/graph-home.component';
+import { UserHomeComponent } from './components/user/user-home/user-home.component';
+import { ReportHomeComponent } from './components/report/report-home/report-home.component';
+import { CustomPipe } from './pipes/custom.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { ShopPaymentComponent } from './components/shop/shop-payment/shop-paymen
     StockEditComponent,
     StockHomeComponent,
     ShopHomeComponent,
-    ShopPaymentComponent
+    ShopPaymentComponent,
+    GraphHomeComponent,
+    UserHomeComponent,
+    ReportHomeComponent,
+    CustomPipe
   ],
   imports: [
     BrowserModule,

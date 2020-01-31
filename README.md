@@ -23,6 +23,7 @@ Angular Cli
 - ng g c <path> (components)
 - ng g s <path> (service)
 - ng g g <path> (guard)
+- ng g p <path> (pipe)
 
 Express & Node.js
 - npm init -y
