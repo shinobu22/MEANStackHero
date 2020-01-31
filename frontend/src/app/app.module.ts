@@ -22,6 +22,8 @@ import { GraphHomeComponent } from './components/graph/graph-home/graph-home.com
 import { UserHomeComponent } from './components/user/user-home/user-home.component';
 import { ReportHomeComponent } from './components/report/report-home/report-home.component';
 import { CustomPipe } from './pipes/custom.pipe';
+import { TransactionHomeComponent } from './components/transaction/transaction-home/transaction-home.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { CustomPipe } from './pipes/custom.pipe';
     GraphHomeComponent,
     UserHomeComponent,
     ReportHomeComponent,
-    CustomPipe
+    CustomPipe,
+    TransactionHomeComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,

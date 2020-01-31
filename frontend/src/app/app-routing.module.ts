@@ -10,6 +10,7 @@ import { ShopHomeComponent } from './components/shop/shop-home/shop-home.compone
 import { ReportHomeComponent } from './components/report/report-home/report-home.component';
 import { UserHomeComponent } from './components/user/user-home/user-home.component';
 import { GraphHomeComponent } from './components/graph/graph-home/graph-home.component';
+import { TransactionHomeComponent } from './components/transaction/transaction-home/transaction-home.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,10 +23,12 @@ const routes: Routes = [
       { path: 'edit/:id', component: StockEditComponent },
     ], canActivate: [AuthGuard]
   },
-  { path: 'report', component: ReportHomeComponent },
-  { path: 'user', component: UserHomeComponent },
-  { path: 'graph', component: GraphHomeComponent },
-  { path: 'shop', component: ShopHomeComponent },
+  { path: 'orders', component: TransactionHomeComponent, canActivate: [AuthGuard]},
+  { path: 'chart', component: TransactionHomeComponent, canActivate: [AuthGuard]},
+  { path: 'report', component: ReportHomeComponent, canActivate: [AuthGuard]},
+  { path: 'user', component: UserHomeComponent, canActivate: [AuthGuard]},
+  { path: 'graph', component: GraphHomeComponent, canActivate: [AuthGuard]},
+  { path: 'shop', component: ShopHomeComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: 'login' }
 ];
 
